@@ -1,4 +1,5 @@
 from models import Chlabichou, Cellule, Gene
+from simulation import Engine
 
 
 def test_run():
@@ -10,16 +11,26 @@ def test_run():
     g3 = Gene("C", 0.3)
 
     # Création cellule
-    cellule = Cellule("neurone", [g1, g2, g3])
+    cellule = Cellule([g1, g2, g3])
 
     # Création animal
     animal = Chlabichou("Chat", [cellule])
 
-    print(cellule)
-    print("Expression globale :", animal.expression_globale())
+    engine = Engine([cellule])
+    engine.run(10)
 
+    for etat in engine.historique:
+        print(etat)
+
+
+def craft_chlabichou():
+    """ """
+
+    print("Tardis")
 
 
 if __name__ == "__main__":
 
+    craft_chlabichou()
     test_run()
+
