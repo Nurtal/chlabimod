@@ -10,12 +10,16 @@ def test_run():
     g2 = Gene("B", 0.5)
     g3 = Gene("C", 0.3)
 
+
+    print(g3.expression)
+    g3.induced(5)
+    print(g3.expression)
+
     # Création cellule
     cellule = Cellule([g1, g2, g3])
 
     # Création animal
     animal = Chlabichou("Chat", [cellule])
-
     engine = Engine([cellule])
     engine.run(10)
 
