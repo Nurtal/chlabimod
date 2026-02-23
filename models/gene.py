@@ -7,6 +7,8 @@ class Gene:
 
         self.nom = nom
         self.expression = expression
+        self.inductor_list = []
+        self.inhibitor_list = []
 
     def varier(self, amplitude: float = 0.1) -> None:
         variation = random.uniform(-amplitude, amplitude)

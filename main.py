@@ -15,8 +15,13 @@ def test_run():
     g3.induced(5)
     print(g3.expression)
 
+    g3.inductor_list.append('A')
+
+    print(g3.inductor_list)
+
     # Création cellule
     cellule = Cellule([g1, g2, g3])
+    cellule.apply_regulation()
 
     # Création animal
     animal = Chlabichou("Chat", [cellule])
