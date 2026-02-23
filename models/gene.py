@@ -15,6 +15,32 @@ class Gene:
         # Clamp entre 0 et 1
         self.expression = max(0.0, min(1.0, nouvelle_valeur))
 
+    def induced(self, factor:float):
+        """
+        Modify gene expression if gene is induced
+        Args:
+            - factor (float) : supposed to be between 0 and 1
+        """
+
+        # compute variation
+        variation = self.expression * factor
+
+        # new expression
+        self.expression = self.expression + variation
+        
+    def inhibited(self, factor:float):
+        """
+        Modify gene expression if gene is inhibited
+        Args:
+            - factor (float) : supposed to be between 0 and 1
+        """
+
+        # compute variation
+        variation = self.expression * factor
+
+        # new expression
+        self.expression = self.expression - variation
+
     def __repr__(self):
         return f"{self.nom}:{self.expression:.2f}"
 
