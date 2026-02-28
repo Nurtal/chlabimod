@@ -29,7 +29,7 @@ class Cellule:
                 
                 # check for inductor
                 if gi.nom in g.inductor_list:
-                    g.induced(gi.expression)
+                    g.induced(gi.expression, "linear")
                     print(f"[LOG] gene {g.nom} is induced by gene {gi.nom}") # log purpose, to put in a better place
 
                 # check for inhibitor

@@ -17,18 +17,23 @@ class Gene:
         # Clamp entre 0 et 1
         self.expression = max(0.0, min(1.0, nouvelle_valeur))
 
-    def induced(self, factor:float):
+    def induced(self, factor:float, activation:str):
         """
         Modify gene expression if gene is induced
         Args:
             - factor (float) : supposed to be between 0 and 1
         """
 
-        # compute variation
-        variation = self.expression * factor
+        if activation == 'linear':
 
-        # new expression
-        self.expression = self.expression + variation
+            # compute variation
+            variation = self.expression * factor
+
+            # new expression
+            self.expression = self.expression + variation
+
+        if activation == 'direct':
+            self.expression = self.expression * factor
         
     def inhibited(self, factor:float):
         """
